@@ -11,20 +11,20 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
         }
-        
+
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         /* 导航栏 */
         header {
             background-color: #fff;
@@ -34,47 +34,48 @@
             top: 0;
             z-index: 1000;
         }
-        
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
+            position: relative;
         }
-        
+
         .logo {
             font-size: 24px;
             font-weight: bold;
             color: #4a6cf7;
         }
-        
+
         .nav-links {
             display: flex;
             list-style: none;
         }
-        
+
         .nav-links li {
             margin-left: 20px;
             position: relative;
         }
-        
+
         .nav-links a {
             text-decoration: none;
             color: #333;
             font-weight: 500;
             transition: color 0.3s;
         }
-        
+
         .nav-links a:hover {
             color: #4a6cf7;
         }
-        
+
         /* 语言下拉菜单 */
         .language-dropdown {
             position: relative;
             display: inline-block;
         }
-        
+
         .language-dropdown-content {
             display: none;
             position: absolute;
@@ -86,11 +87,11 @@
             z-index: 1;
             overflow: hidden;
         }
-        
+
         .language-dropdown:hover .language-dropdown-content {
             display: block;
         }
-        
+
         .language-dropdown-content a {
             color: #333;
             padding: 12px 16px;
@@ -99,43 +100,125 @@
             text-align: left;
             transition: background-color 0.3s;
         }
-        
+
         .language-dropdown-content a:hover {
             background-color: #f5f7fa;
         }
-        
+
         .current-language {
             display: flex;
             align-items: center;
             cursor: pointer;
         }
-        
+
         .current-language:after {
             content: "▼";
             font-size: 10px;
             margin-left: 5px;
         }
-        
+
+        /* 移动端菜单按钮 */
+        .mobile-menu-button {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu-button span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #4a6cf7;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* 移动端菜单 */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 1000;
+            padding: 80px 20px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow-y: auto;
+        }
+
+        .mobile-language-dropdown {
+            margin-bottom: 20px;
+        }
+
+        .mobile-current-language {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4a6cf7;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-language-options {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-language-options a {
+            padding: 12px 0;
+            color: #333;
+            text-decoration: none;
+            border-bottom: 1px solid #f5f5f5;
+            transition: color 0.3s;
+        }
+
+        .mobile-language-options a:hover {
+            color: #4a6cf7;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        /* 当移动菜单激活时的汉堡按钮样式 */
+        .mobile-menu-button.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .mobile-menu-button.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-button.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
         /* 英雄区域 */
         .hero {
             padding: 150px 0 100px;
             background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
             text-align: center;
         }
-        
+
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
             color: #2d3748;
         }
-        
+
         .hero p {
             font-size: 20px;
             color: #4a5568;
             max-width: 700px;
             margin: 0 auto 40px;
         }
-        
+
         .cta-button {
             display: inline-block;
             background-color: #4a6cf7;
@@ -146,47 +229,47 @@
             font-weight: bold;
             transition: background-color 0.3s;
         }
-        
+
         .cta-button:hover {
             background-color: #3a5bd9;
         }
-        
+
         .app-screenshot {
             max-width: 80%;
             margin: 40px auto 0;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
-        
+
         /* 特性部分 */
         .features {
             padding: 100px 0;
             background-color: #fff;
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 60px;
         }
-        
+
         .section-title h2 {
             font-size: 36px;
             color: #2d3748;
             margin-bottom: 15px;
         }
-        
+
         .section-title p {
             color: #718096;
             max-width: 600px;
             margin: 0 auto;
         }
-        
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
         }
-        
+
         .feature-card {
             text-align: center;
             padding: 30px;
@@ -194,27 +277,27 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s;
         }
-        
+
         .feature-card:hover {
             transform: translateY(-10px);
         }
-        
+
         .feature-icon {
             font-size: 50px;
             color: #4a6cf7;
             margin-bottom: 20px;
         }
-        
+
         .feature-card h3 {
             font-size: 22px;
             margin-bottom: 15px;
             color: #2d3748;
         }
-        
+
         .feature-card p {
             color: #718096;
         }
-        
+
         /* 下载部分 */
         .download {
             padding: 100px 0;
@@ -222,26 +305,26 @@
             color: white;
             text-align: center;
         }
-        
+
         .download h2 {
             font-size: 36px;
             margin-bottom: 20px;
         }
-        
+
         .download p {
             max-width: 600px;
             margin: 0 auto 40px;
             font-size: 18px;
             opacity: 0.9;
         }
-        
+
         .store-buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
             flex-wrap: wrap;
         }
-        
+
         .store-button {
             display: inline-flex;
             align-items: center;
@@ -253,53 +336,53 @@
             font-weight: 500;
             transition: transform 0.3s;
         }
-        
+
         .store-button:hover {
             transform: scale(1.05);
         }
-        
+
         .store-button img {
             height: 24px;
             margin-right: 10px;
         }
-        
+
         /* 关于部分 */
         .about {
             padding: 100px 0;
             background-color: #f8fafc;
         }
-        
+
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
         }
-        
+
         .about-image img {
             width: 100%;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
-        
+
         .about-text h2 {
             font-size: 36px;
             margin-bottom: 20px;
             color: #2d3748;
         }
-        
+
         .about-text p {
             margin-bottom: 20px;
             color: #4a5568;
         }
-        
+
         /* 联系部分 */
         .contact {
             padding: 100px 0;
             background-color: #fff;
             text-align: center;
         }
-        
+
         .contact-info {
             display: flex;
             justify-content: center;
@@ -307,7 +390,7 @@
             margin-top: 40px;
             flex-wrap: wrap;
         }
-        
+
         .contact-item {
             flex: 1;
             min-width: 250px;
@@ -315,60 +398,60 @@
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
         }
-        
+
         .contact-item h3 {
             font-size: 20px;
             margin-bottom: 15px;
             color: #2d3748;
         }
-        
+
         .contact-item p, .contact-item a {
             color: #718096;
             text-decoration: none;
         }
-        
+
         .contact-item a:hover {
             color: #4a6cf7;
         }
-        
+
         /* 页脚 */
         footer {
             background-color: #2d3748;
             color: white;
             padding: 60px 0 30px;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
-        
+
         .footer-column h3 {
             font-size: 18px;
             margin-bottom: 20px;
             color: #e2e8f0;
         }
-        
+
         .footer-column ul {
             list-style: none;
         }
-        
+
         .footer-column ul li {
             margin-bottom: 10px;
         }
-        
+
         .footer-column a {
             color: #a0aec0;
             text-decoration: none;
             transition: color 0.3s;
         }
-        
+
         .footer-column a:hover {
             color: white;
         }
-        
+
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
@@ -376,558 +459,627 @@
             color: #a0aec0;
             font-size: 14px;
         }
-        
+
         /* 响应式设计 */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 36px;
             }
-            
+
             .hero p {
                 font-size: 18px;
             }
-            
+
             .about-content {
                 grid-template-columns: 1fr;
             }
-            
+
             .nav-links {
-                display: none; /* 简化移动端导航 */
+                display: none;
+            }
+
+            .mobile-menu-button {
+                display: flex;
+            }
+
+            .logo {
+                font-size: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Youtube Offline Music Player</div>
-                <ul class="nav-links">
-                    <li class="language-dropdown">
-                        <div class="current-language">English</div>
-                        <div class="language-dropdown-content">
-                            <a href="#" onclick="changeLanguage('zh')">简体中文</a>
-                            <a href="#" onclick="changeLanguage('en')">English</a>
-                            <a href="#" onclick="changeLanguage('pt')">Português</a>
-                            <a href="#" onclick="changeLanguage('es')">Español</a>
-                            <a href="#" onclick="changeLanguage('fr')">Français</a>
-                            <a href="#" onclick="changeLanguage('ru')">Русский</a>
-                            <a href="#" onclick="changeLanguage('tr')">Türkçe</a>
-                            <a href="#" onclick="changeLanguage('hi')">हिंदी</a>
-                            <a href="#" onclick="changeLanguage('de')">Deutsch</a>
-                            <a href="#" onclick="changeLanguage('ar')">العربية</a>
-                        </div>
-                    </li>
+<!-- 导航栏 -->
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">Youtube Offline Music Player</div>
+            <ul class="nav-links">
+                <li class="language-dropdown">
+                    <div class="current-language">English</div>
+                    <div class="language-dropdown-content">
+                        <a href="#" onclick="changeLanguage('zh')">简体中文</a>
+                        <a href="#" onclick="changeLanguage('en')">English</a>
+                        <a href="#" onclick="changeLanguage('pt')">Português</a>
+                        <a href="#" onclick="changeLanguage('es')">Español</a>
+                        <a href="#" onclick="changeLanguage('fr')">Français</a>
+                        <a href="#" onclick="changeLanguage('ru')">Русский</a>
+                        <a href="#" onclick="changeLanguage('tr')">Türkçe</a>
+                        <a href="#" onclick="changeLanguage('hi')">हिंदी</a>
+                        <a href="#" onclick="changeLanguage('de')">Deutsch</a>
+                        <a href="#" onclick="changeLanguage('ar')">العربية</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- 移动端菜单按钮 -->
+            <div class="mobile-menu-button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- 移动端菜单 -->
+            <div class="mobile-menu">
+                <div class="mobile-language-dropdown">
+                    <div class="mobile-current-language">English</div>
+                    <div class="mobile-language-options">
+                        <a href="#" onclick="changeLanguage('zh'); closeMobileMenu();">简体中文</a>
+                        <a href="#" onclick="changeLanguage('en'); closeMobileMenu();">English</a>
+                        <a href="#" onclick="changeLanguage('pt'); closeMobileMenu();">Português</a>
+                        <a href="#" onclick="changeLanguage('es'); closeMobileMenu();">Español</a>
+                        <a href="#" onclick="changeLanguage('fr'); closeMobileMenu();">Français</a>
+                        <a href="#" onclick="changeLanguage('ru'); closeMobileMenu();">Русский</a>
+                        <a href="#" onclick="changeLanguage('tr'); closeMobileMenu();">Türkçe</a>
+                        <a href="#" onclick="changeLanguage('hi'); closeMobileMenu();">हिंदी</a>
+                        <a href="#" onclick="changeLanguage('de'); closeMobileMenu();">Deutsch</a>
+                        <a href="#" onclick="changeLanguage('ar'); closeMobileMenu();">العربية</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- 英雄区域 -->
+<section class="hero">
+    <div class="container">
+        <h1 id="app-title">Youtube Offline Music Player</h1>
+        <p id="app-description">Provides intelligent offline caching, seamless song switching, and professional playlist management, allowing you to enjoy ad-free YouTube music at a lower cost.</p>
+
+        <div style="margin: 30px auto; max-width: 800px; background-color: rgba(255, 255, 255, 0.8); padding: 25px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); text-align: left;">
+            <h3 style="color: #3a5bd9; margin-bottom: 15px; font-size: 22px; text-align: center;" id="core-advantages">Core Advantages</h3>
+            <ul style="list-style-type: none; padding-left: 10px;">
+                <li style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+                    <span style="color: #4a6cf7; font-weight: bold; margin-right: 10px; font-size: 20px;">✓</span>
+                    <div>
+                        <strong style="color: #2d3748;" id="advantage-1-title">Cost-Effective:</strong>
+                        <span id="advantage-1-desc">One-time purchase for lifetime use, say goodbye to the ever-increasing YouTube Premium subscription fees, enjoy quality music at a lower cost</span>
+                    </div>
+                </li>
+                <li style="margin-bottom: 15px; display: flex; align-items: flex-start;">
+                    <span style="color: #4a6cf7; font-weight: bold; margin-right: 10px; font-size: 20px;">✓</span>
+                    <div>
+                        <strong style="color: #2d3748;" id="advantage-2-title">Smooth Experience:</strong>
+                        <span id="advantage-2-desc">Smart audio extraction technology lets you enjoy YouTube's vast music library, offline playback saves data, no need to worry about network fluctuations</span>
+                    </div>
+                </li>
+                <li style="display: flex; align-items: flex-start;">
+                    <span style="color: #4a6cf7; font-weight: bold; margin-right: 10px; font-size: 20px;">✓</span>
+                    <div>
+                        <strong style="color: #2d3748;" id="advantage-3-title">Permanent Storage:</strong>
+                        <span id="advantage-3-desc">Local playlist management system gives you complete control over your music collection, no longer restricted by platform limitations, avoiding content removal risks</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <a href="https://apps.apple.com/us/app/snaptube-offline-music-player/id6605935428?l=en-us" class="cta-button" target="_blank" id="download-btn">Download Now</a>
+        <p style="margin-top: 15px; font-size: 14px; color: #4a5568;" id="ios-only-notice">Currently only supports iOS devices, download from App Store to enjoy high-quality music experience.</p>
+
+        <div style="margin: 50px auto 0; max-width: 90%;">
+            <h3 style="margin-bottom: 30px; color: #2d3748; font-size: 24px;" id="app-preview">App Interface Preview</h3>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+                <div style="flex: 1; min-width: 250px; max-width: 300px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); border-radius: 12px; overflow: hidden;">
+                    <img src="https://offline-players.github.io/image/home_page.jpeg" alt="首页界面" style="width: 100%; height: auto; display: block;">
+                    <div style="padding: 15px; text-align: center; background-color: #fff;">
+                        <p style="font-weight: bold; color: #2d3748;" id="home-page">首页</p>
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 250px; max-width: 300px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); border-radius: 12px; overflow: hidden;">
+                    <img src="https://offline-players.github.io/image/discover_page.jpeg" alt="发现界面" style="width: 100%; height: auto; display: block;">
+                    <div style="padding: 15px; text-align: center; background-color: #fff;">
+                        <p style="font-weight: bold; color: #2d3748;" id="discover-page">发现</p>
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 250px; max-width: 300px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); border-radius: 12px; overflow: hidden;">
+                    <img src="https://offline-players.github.io/image/playList_page.jpeg" alt="播放列表界面" style="width: 100%; height: auto; display: block;">
+                    <div style="padding: 15px; text-align: center; background-color: #fff;">
+                        <p style="font-weight: bold; color: #2d3748;" id="playlist-page">播放列表</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 特性部分 -->
+<section class="features" id="features">
+    <div class="container">
+        <div class="section-title">
+            <h2 id="features-title">Main Features</h2>
+            <p id="features-subtitle">Offline playback solution designed for music lovers</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3 id="feature-1-title">Cost-Effective</h3>
+                <p id="feature-1-desc">One-time payment, lifetime use, no need to pay increasing subscription fees, saving you a lot of expenses.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📶❌</div>
+                <h3 id="feature-2-title">Offline Playback</h3>
+                <p id="feature-2-desc">Intelligently cache your favorite music, enjoy anytime, anywhere, without worrying about network connection, saving data usage.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎵</div>
+                <h3 id="feature-3-title">Local Management</h3>
+                <p id="feature-3-desc">Create and manage your exclusive playlists, permanently save your favorite music, unaffected by platform content changes.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 下载部分 -->
+<section class="download" id="download">
+    <div class="container">
+        <h2 id="download-title">Experience Our App Now</h2>
+        <p id="download-subtitle">Currently only supports iOS devices, download from App Store to enjoy high-quality music experience.</p>
+        <div class="store-buttons">
+            <a href="https://apps.apple.com/us/app/snaptube-offline-music-player/id6605935428?l=en-us" class="store-button" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/App_Store_%28iOS%29.svg/1200px-App_Store_%28iOS%29.svg.png" alt="App Store">
+                App Store
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3 id="legal-info">Legal Information</h3>
+                <ul>
+                    <li><a href="#" id="privacy-policy">Privacy Policy</a></li>
+                    <li><a href="#" id="terms-of-service">Terms of Service</a></li>
+                    <li><a href="#" id="cookie-policy">Cookie Policy</a></li>
                 </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- 英雄区域 -->
-    <section class="hero">
-        <div class="container">
-            <h1 id="app-title">Youtube Offline Music Player</h1>
-            <p id="app-description">Provides intelligent offline caching, seamless song switching, and professional playlist management, allowing you to enjoy ad-free YouTube music at a lower cost.</p>
-            
-            <div style="margin: 30px auto; max-width: 800px; background-color: rgba(255, 255, 255, 0.8); padding: 25px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); text-align: left;">
-                <h3 style="color: #3a5bd9; margin-bottom: 15px; font-size: 22px; text-align: center;" id="core-advantages">Core Advantages</h3>
-                <ul style="list-style-type: none; padding-left: 10px;">
-                    <li style="margin-bottom: 15px; display: flex; align-items: flex-start;">
-                        <span style="color: #4a6cf7; font-weight: bold; margin-right: 10px; font-size: 20px;">✓</span>
-                        <div>
-                            <strong style="color: #2d3748;" id="advantage-1-title">Cost-Effective:</strong>
-                            <span id="advantage-1-desc">One-time purchase for lifetime use, say goodbye to the ever-increasing YouTube Premium subscription fees, enjoy quality music at a lower cost</span>
-                        </div>
-                    </li>
-                    <li style="margin-bottom: 15px; display: flex; align-items: flex-start;">
-                        <span style="color: #4a6cf7; font-weight: bold; margin-right: 10px; font-size: 20px;">✓</span>
-                        <div>
-                            <strong style="color: #2d3748;" id="advantage-2-title">Smooth Experience:</strong>
-                            <span id="advantage-2-desc">Smart audio extraction technology lets you enjoy YouTube's vast music library, offline playback saves data, no need to worry about network fluctuations</span>
-                        </div>
-                    </li>
-                    <li style="display: flex; align-items: flex-start;">
-                        <span style="color: #4a6cf7; font-weight: bold; margin-right: 10px; font-size: 20px;">✓</span>
-                        <div>
-                            <strong style="color: #2d3748;" id="advantage-3-title">Permanent Storage:</strong>
-                            <span id="advantage-3-desc">Local playlist management system gives you complete control over your music collection, no longer restricted by platform limitations, avoiding content removal risks</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            
-            <a href="https://apps.apple.com/us/app/snaptube-offline-music-player/id6605935428?l=en-us" class="cta-button" target="_blank" id="download-btn">Download Now</a>
-            <p style="margin-top: 15px; font-size: 14px; color: #4a5568;" id="ios-only-notice">Currently only supports iOS devices, download from App Store to enjoy high-quality music experience.</p>
-            
-            <div style="margin: 50px auto 0; max-width: 90%;">
-                <h3 style="margin-bottom: 30px; color: #2d3748; font-size: 24px;" id="app-preview">App Interface Preview</h3>
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-                    <div style="flex: 1; min-width: 250px; max-width: 300px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); border-radius: 12px; overflow: hidden;">
-                        <img src="https://offline-players.github.io/image/home_page.jpeg" alt="首页界面" style="width: 100%; height: auto; display: block;">
-                        <div style="padding: 15px; text-align: center; background-color: #fff;">
-                            <p style="font-weight: bold; color: #2d3748;" id="home-page">首页</p>
-                        </div>
-                    </div>
-                    <div style="flex: 1; min-width: 250px; max-width: 300px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); border-radius: 12px; overflow: hidden;">
-                        <img src="https://offline-players.github.io/image/discover_page.jpeg" alt="发现界面" style="width: 100%; height: auto; display: block;">
-                        <div style="padding: 15px; text-align: center; background-color: #fff;">
-                            <p style="font-weight: bold; color: #2d3748;" id="discover-page">发现</p>
-                        </div>
-                    </div>
-                    <div style="flex: 1; min-width: 250px; max-width: 300px; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); border-radius: 12px; overflow: hidden;">
-                        <img src="https://offline-players.github.io/image/playList_page.jpeg" alt="播放列表界面" style="width: 100%; height: auto; display: block;">
-                        <div style="padding: 15px; text-align: center; background-color: #fff;">
-                            <p style="font-weight: bold; color: #2d3748;" id="playlist-page">播放列表</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-    </section>
-
-    <!-- 特性部分 -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-title">
-                <h2 id="features-title">Main Features</h2>
-                <p id="features-subtitle">Offline playback solution designed for music lovers</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3 id="feature-1-title">Cost-Effective</h3>
-                    <p id="feature-1-desc">One-time payment, lifetime use, no need to pay increasing subscription fees, saving you a lot of expenses.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📶❌</div>
-                    <h3 id="feature-2-title">Offline Playback</h3>
-                    <p id="feature-2-desc">Intelligently cache your favorite music, enjoy anytime, anywhere, without worrying about network connection, saving data usage.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎵</div>
-                    <h3 id="feature-3-title">Local Management</h3>
-                    <p id="feature-3-desc">Create and manage your exclusive playlists, permanently save your favorite music, unaffected by platform content changes.</p>
-                </div>
-            </div>
+        <div class="footer-bottom">
+            <p id="copyright">&copy; 2023 Youtube Offline Music Player. All rights reserved.</p>
         </div>
-    </section>
+    </div>
+</footer>
 
-    <!-- 下载部分 -->
-    <section class="download" id="download">
-        <div class="container">
-            <h2 id="download-title">Experience Our App Now</h2>
-            <p id="download-subtitle">Currently only supports iOS devices, download from App Store to enjoy high-quality music experience.</p>
-            <div class="store-buttons">
-                <a href="https://apps.apple.com/us/app/snaptube-offline-music-player/id6605935428?l=en-us" class="store-button" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/App_Store_%28iOS%29.svg/1200px-App_Store_%28iOS%29.svg.png" alt="App Store">
-                    App Store
-                </a>
-            </div>
-        </div>
-    </section>
+<script>
+    // 多语言支持
+    const translations = {
+        'zh': {
+            'current-language': '简体中文',
+            'app-description': '提供智能离线缓存、无缝切歌和专业歌单管理，让你在更低成本下享受无广告的YouTube音乐体验。',
+            'core-advantages': '核心优势',
+            'advantage-1-title': '经济实惠：',
+            'advantage-1-desc': '一次性购买终身使用，彻底告别 YouTube Premium 持续增长的订阅费用，更低成本享受优质音乐',
+            'advantage-2-title': '流畅体验：',
+            'advantage-2-desc': '智能音频提取技术让您畅享 YouTube 海量音乐库，离线播放节省流量，无需担心网络波动',
+            'advantage-3-title': '永久保存：',
+            'advantage-3-desc': '本地歌单管理系统让您完全掌控音乐收藏，不再受平台限制，规避内容下架风险',
+            'download-btn': '立即下载',
+            'app-preview': '应用界面预览',
+            'home-page': '首页',
+            'discover-page': '发现',
+            'playlist-page': '播放列表',
+            'features-title': '主要特性',
+            'features-subtitle': '专为音乐爱好者打造的离线播放解决方案',
+            'feature-1-title': '经济实惠',
+            'feature-1-desc': '一次性付费，终身使用，无需支付持续增长的订阅费用，为您节省大量开支。',
+            'feature-2-title': '离线播放',
+            'feature-2-desc': '智能缓存您喜爱的音乐，随时随地欣赏，无需担心网络连接，节省流量消耗。',
+            'feature-3-title': '本地管理',
+            'feature-3-desc': '创建和管理您的专属歌单，永久保存您喜爱的音乐，不受平台内容变动影响。',
+            'download-title': '立即体验我们的应用',
+            'download-subtitle': '目前仅支持iOS设备，下载从App Store享受高品质音乐体验。',
+            'legal-info': '法律信息',
+            'privacy-policy': '隐私政策',
+            'terms-of-service': '服务条款',
+            'cookie-policy': 'Cookie 政策',
+            'copyright': '&copy; 2023 Youtube Offline Music Player. 保留所有权利。'
+        },
+        'en': {
+            'current-language': 'English',
+            'app-description': 'Provides intelligent offline caching, seamless song switching, and professional playlist management, allowing you to enjoy ad-free YouTube music at a lower cost.',
+            'core-advantages': 'Core Advantages',
+            'advantage-1-title': 'Cost-Effective:',
+            'advantage-1-desc': 'One-time purchase for lifetime use, say goodbye to the ever-increasing YouTube Premium subscription fees, enjoy quality music at a lower cost',
+            'advantage-2-title': 'Smooth Experience:',
+            'advantage-2-desc': 'Smart audio extraction technology lets you enjoy YouTube\'s vast music library, offline playback saves data, no need to worry about network fluctuations',
+            'advantage-3-title': 'Permanent Storage:',
+            'advantage-3-desc': 'Local playlist management system gives you complete control over your music collection, no longer restricted by platform limitations, avoiding content removal risks',
+            'download-btn': 'Download Now',
+            'app-preview': 'App Interface Preview',
+            'home-page': 'Home',
+            'discover-page': 'Discover',
+            'playlist-page': 'Playlist',
+            'features-title': 'Main Features',
+            'features-subtitle': 'Offline playback solution designed for music lovers',
+            'feature-1-title': 'Cost-Effective',
+            'feature-1-desc': 'One-time payment, lifetime use, no need to pay increasing subscription fees, saving you a lot of expenses.',
+            'feature-2-title': 'Offline Playback',
+            'feature-2-desc': 'Intelligently cache your favorite music, enjoy anytime, anywhere, without worrying about network connection, saving data usage.',
+            'feature-3-title': 'Local Management',
+            'feature-3-desc': 'Create and manage your exclusive playlists, permanently save your favorite music, unaffected by platform content changes.',
+            'download-title': 'Experience Our App Now',
+            'download-subtitle': 'Currently only supports iOS devices, download from App Store to enjoy high-quality music experience.',
+            'legal-info': 'Legal Information',
+            'privacy-policy': 'Privacy Policy',
+            'terms-of-service': 'Terms of Service',
+            'cookie-policy': 'Cookie Policy',
+            'copyright': '&copy; 2023 Youtube Offline Music Player. All rights reserved.'
+        },
+        'pt': {
+            'current-language': 'Português',
+            'app-description': 'Oferece cache offline inteligente, troca de músicas sem interrupções e gerenciamento profissional de playlists, permitindo que você desfrute de música do YouTube sem anúncios a um custo menor.',
+            'core-advantages': 'Vantagens Principais',
+            'advantage-1-title': 'Econômico:',
+            'advantage-1-desc': 'Compra única para uso vitalício, diga adeus às taxas crescentes de assinatura do YouTube Premium, desfrute de música de qualidade a um custo menor',
+            'advantage-2-title': 'Experiência Fluida:',
+            'advantage-2-desc': 'A tecnologia inteligente de extração de áudio permite que você desfrute da vasta biblioteca de música do YouTube, reprodução offline economiza dados, sem preocupações com flutuações de rede',
+            'advantage-3-title': 'Armazenamento Permanente:',
+            'advantage-3-desc': 'O sistema de gerenciamento de playlist local dá a você controle total sobre sua coleção de música, sem restrições de plataforma, evitando riscos de remoção de conteúdo',
+            'download-btn': 'Baixar Agora',
+            'app-preview': 'Prévia da Interface do Aplicativo',
+            'home-page': 'Início',
+            'discover-page': 'Descobrir',
+            'playlist-page': 'Playlist',
+            'features-title': 'Principais Recursos',
+            'features-subtitle': 'Solução de reprodução offline projetada para amantes de música',
+            'feature-1-title': 'Econômico',
+            'feature-1-desc': 'Pagamento único, uso vitalício, sem necessidade de pagar taxas de assinatura crescentes, economizando muito em despesas.',
+            'feature-2-title': 'Reprodução Offline',
+            'feature-2-desc': 'Cache inteligente de suas músicas favoritas, desfrute a qualquer hora, em qualquer lugar, sem se preocupar com conexão de rede, economizando uso de dados.',
+            'feature-3-title': 'Gerenciamento Local',
+            'feature-3-desc': 'Crie e gerencie suas playlists exclusivas, salve permanentemente suas músicas favoritas, sem ser afetado por mudanças de contenu da plataforma.',
+            'download-title': 'Experimente Nosso Aplicativo Agora',
+            'download-subtitle': 'Atualmente disponível apenas para dispositivos iOS, baixe na App Store para desfrutar de uma experiência musical de alta qualidade.',
+            'legal-info': 'Informações Legais',
+            'privacy-policy': 'Política de Privacidade',
+            'terms-of-service': 'Termos de Serviço',
+            'cookie-policy': 'Política de Cookies',
+            'copyright': '&copy; 2023 Youtube Offline Music Player. Todos os direitos reservados.'
+        },
+        'es': {
+            'current-language': 'Español',
+            'app-description': 'Proporciona almacenamiento inteligente sin conexión, cambio de canciones sin interrupciones y gestión profesional de listas de reproducción, permitiéndote disfrutar de música de YouTube sin anuncios a un costo menor.',
+            'core-advantages': 'Ventajas Principales',
+            'advantage-1-title': 'Económico:',
+            'advantage-1-desc': 'Compra única para uso de por vida, diga adiós a las tarifas crecientes de suscripción de YouTube Premium, disfrute de música de calidad a un costo menor',
+            'advantage-2-title': 'Experiencia Fluida:',
+            'advantage-2-desc': 'La tecnología inteligente de extracción de audio le permite disfrutar de la vasta biblioteca de música de YouTube, la reproducción sin conexión ahorra datos, sin preocuparse por las fluctuaciones de la red',
+            'advantage-3-title': 'Almacenamiento Permanente:',
+            'advantage-3-desc': 'El sistema de gestión de listas de reproducción local le da control total sobre su colección de música, sin restricciones de plataforma, evitando riesgos de eliminación de contenido',
+            'download-btn': 'Descargar Ahora',
+            'app-preview': 'Vista Previa de la Interfaz de la Aplicación',
+            'home-page': 'Inicio',
+            'discover-page': 'Descubrir',
+            'playlist-page': 'Lista de Reproducción',
+            'features-title': 'Características Principales',
+            'features-subtitle': 'Solución de reproducción sin conexión diseñada para amantes de la música',
+            'feature-1-title': 'Económico',
+            'feature-1-desc': 'Pago único, uso de por vida, sin necesidad de pagar tarifas de suscripción crecientes, ahorrándole muchos gastos.',
+            'feature-2-title': 'Reproducción Sin Conexión',
+            'feature-2-desc': 'Almacene inteligentemente su música favorita, disfrute en cualquier momento y lugar, sin preocuparse por la conexión de red, ahorrando uso de datos.',
+            'feature-3-title': 'Gestión Local',
+            'feature-3-desc': 'Cree y gestione sus listas de reproducción exclusivas, guarde permanentemente su música favorita, sin verse afectado por los cambios de contenido de la plataforma.',
+            'download-title': 'Experimente Nuestra Aplicación Ahora',
+            'download-subtitle': 'Actualmente solo compatible con dispositivos iOS, descárgalo desde App Store para disfrutar de una experiencia musical de alta calidad.',
+            'legal-info': 'Información Legal',
+            'privacy-policy': 'Política de Privacidad',
+            'terms-of-service': 'Términos de Servicio',
+            'cookie-policy': 'Política de Cookies',
+            'copyright': '&copy; 2023 Youtube Offline Music Player. Todos los derechos reservados.'
+        },
+        'fr': {
+            'current-language': 'Français',
+            'app-description': 'Offre une mise en cache intelligente hors ligne, un changement de chanson fluide et une gestion professionnelle des playlists, vous permettant de profiter de la musique YouTube sans publicité à moindre coût.',
+            'core-advantages': 'Avantages Principaux',
+            'advantage-1-title': 'Économique:',
+            'advantage-1-desc': 'Achat unique pour une utilisation à vie, dites adieu aux frais d\'abonnement croissants de YouTube Premium, profitez d\'une musique de qualité à moindre coût',
+            'advantage-2-title': 'Expérience Fluide:',
+            'advantage-2-desc': 'La technologie intelligente d\'extraction audio vous permet de profiter de la vaste bibliothèque musicale de YouTube, la lecture hors ligne économise des données, plus besoin de vous soucier des fluctuations du réseau',
+            'advantage-3-title': 'Stockage Permanent:',
+            'advantage-3-desc': 'Le système de gestion de playlist local vous donne un contrôle total sur votre collection de musique, plus de restrictions de plateforme, évitant les risques de suppression de contenu',
+            'download-btn': 'Télécharger Maintenant',
+            'app-preview': 'Aperçu de l\'Interface de l\'Application',
+            'home-page': 'Accueil',
+            'discover-page': 'Découvrir',
+            'playlist-page': 'Playlist',
+            'features-title': 'Fonctionnalités Principales',
+            'features-subtitle': 'Solution de lecture hors ligne conçue pour les amateurs de musique',
+            'feature-1-title': 'Économique',
+            'feature-1-desc': 'Paiement unique, utilisation à vie, pas besoin de payer des frais d\'abonnement croissants, vous économisant beaucoup de dépenses.',
+            'feature-2-title': 'Lecture Hors Ligne',
+            'feature-2-desc': 'Mettez intelligemment en cache votre musique préférée, profitez-en n\'importe quand, n\'importe où, sans vous soucier de la connexion réseau, économisant l\'utilisation des données.',
+            'feature-3-title': 'Gestion Locale',
+            'feature-3-desc': 'Créez et gérez vos playlists exclusives, enregistrez définitivement votre musique préférée, sans être affecté par les changements de contenu de la plateforme.',
+            'download-title': 'Essayez Notre Application Maintenant',
+            'download-subtitle': 'Actuellement compatible uniquement avec les appareils iOS, téléchargez depuis l\'App Store pour profiter d\'une expérience musicale de haute qualité.',
+            'legal-info': 'Informations Légales',
+            'privacy-policy': 'Politique de Confidentialité',
+            'terms-of-service': 'Conditions d\'Utilisation',
+            'cookie-policy': 'Politique de Cookies',
+            'copyright': '&copy; 2023 Youtube Offline Music Player. Tous droits réservés.'
+        },
+        'ru': {
+            'current-language': 'Русский',
+            'app-description': 'Предлагает интеллектуальное офлайн-кэширование, плавное переключение песен и профессиональное управление плейлистами, позволяя вам наслаждаться музыкой YouTube без рекламы по более низкой цене.',
+            'core-advantages': 'Основные Преимущества',
+            'advantage-1-title': 'Экономично:',
+            'advantage-1-desc': 'Единовременная покупка для пожизненного использования, попрощайтесь с постоянно растущими платежами за подписку YouTube Premium, наслаждайтесь качественной музыкой по более низкой цене',
+            'advantage-2-title': 'Плавный Опыт:',
+            'advantage-2-desc': 'Интеллектуальная технология извлечения аудио позволяет вам наслаждаться обширной музыкальной библиотекой YouTube, офлайн-воспроизведение экономит данные, не нужно беспокоиться о колебаниях сети',
+            'advantage-3-title': 'Постоянное Хранение:',
+            'advantage-3-desc': 'Система управления локальными плейлистами дает вам полный контроль над вашей музыкальной коллекцией, больше нет ограничений платформы, избегая рисков удаления контента',
+            'download-btn': 'Скачать Сейчас',
+            'app-preview': 'Предварительный Просмотр Интерфейса Приложения',
+            'home-page': 'Главная',
+            'discover-page': 'Открыть',
+            'playlist-page': 'Плейлист',
+            'features-title': 'Основные Функции',
+            'features-subtitle': 'Решение для офлайн-воспроизведения, разработанное для любителей музыки',
+            'feature-1-title': 'Экономично',
+            'feature-1-desc': 'Единовременный платеж, пожизненное использование, не нужно платить растущие абонентские платежи, экономя вам много расходов.',
+            'feature-2-title': 'Офлайн-Воспроизведение',
+            'feature-2-desc': 'Интеллектуально кэшируйте вашу любимую музыку, наслаждайтесь в любое время, в любом месте, не беспокоясь о сетевом подключении, экономя использование данных.',
+            'feature-3-title': 'Локальное Управление',
+            'feature-3-desc': 'Создавайте и управляйте своими эксклюзивными плейлистами, навсегда сохраняйте свою любимую музыку, не подвергаясь влиянию изменений контента платформы.',
+            'download-title': 'Испытайте Наше Приложение Сейчас',
+            'download-subtitle': 'В настоящее время поддерживаются только устройства iOS, загрузите из App Store, чтобы насладиться высококачественным музыкальным опытом.',
+            'legal-info': 'Юридическая Информация',
+            'privacy-policy': 'Политика Конфиденциальности',
+            'terms-of-service': 'Условия Использования',
+            'cookie-policy': 'Политика Cookies',
+            'copyright': '&copy; 2023 Youtube Offline Music Player. Все права защищены.'
+        },
+        'tr': {
+            'current-language': 'Türkçe',
+            'app-description': 'Akıllı çevrimdışı önbelleğe alma, kesintisiz şarkı değiştirme ve profesyonel çalma listesi yönetimi sunarak, YouTube müziğini daha düşük maliyetle reklamsız olarak keyifle dinlemenizi sağlar.',
+            'core-advantages': 'Temel Avantajlar',
+            'advantage-1-title': 'Ekonomik:',
+            'advantage-1-desc': 'Ömür boyu kullanım için tek seferlik satın alma, sürekli artan YouTube Premium abonelik ücretlerine veda edin, kaliteli müziği daha düşük maliyetle keyfini çıkarın',
+            'advantage-2-title': 'Akıcı Deneyim:',
+            'advantage-2-desc': 'Akıllı ses çıkarma teknolojisi, YouTube\'un geniş müzik kütüphanesinin keyfini çıkarmanızı sağlar, çevrimdışı oynatma veri tasarrufu sağlar, ağ dalgalanmaları hakkında endişelenmenize gerek yok',
+            'advantage-3-title': 'Kalıcı Depolama:',
+            'advantage-3-desc': 'Yerel çalma listesi yönetim sistemi, müzik koleksiyonunuz üzerinde tam kontrol sağlar, platform sınırlamaları yok, içerik kaldırma risklerinden kaçınma',
+            'download-btn': 'Şimdi İndir',
+            'app-preview': 'Uygulama Arayüzü Önizlemesi',
+            'home-page': 'Ana Sayfa',
+            'discover-page': 'Keşfet',
+            'playlist-page': 'Çalma Listesi',
+            'features-title': 'Ana Özellikler',
+            'features-subtitle': 'Müzik severler için tasarlanmış çevrimdışı oynatma çözümü',
+            'feature-1-title': 'Ekonomik',
+            'feature-1-desc': 'Tek seferlik ödeme, ömür boyu kullanım, artan abonelik ücretlerini ödemeye gerek yok, size birçok masraftan tasarruf sağlar.',
+            'feature-2-title': 'Çevrimdışı Oynatma',
+            'feature-2-desc': 'Favori müziğinizi akıllıca önbelleğe alın, ağ bağlantısı konusunda endişelenmeden, istediğiniz zaman, istediğiniz yerde keyfini çıkarın, veri kullanımından tasarruf edin.',
+            'feature-3-title': 'Yerel Yönetim',
+            'feature-3-desc': 'Özel çalma listelerinizi oluşturun ve yönetin, favori müziğinizi kalıcı olarak kaydedin, platform içerik değişikliklerinden etkilenmeyin.',
+            'download-title': 'Uygulamamızı Şimdi Deneyin',
+            'download-subtitle': 'Şu anda yalnızca iOS cihazlarını destekler, yüksek kaliteli müzik deneyiminin keyfini çıkarmak için App Store\'dan indirin.',
+            'legal-info': 'Yasal Bilgiler',
+            'privacy-policy': 'Gizlilik Politikası',
+            'terms-of-service': 'Kullanım Koşulları',
+            'cookie-policy': 'Çerez Politikası',
+            'copyright': '&copy; 2023 Youtube Offline Music Player. Tüm hakları saklıdır.'
+        },
+        'hi': {
+            'current-language': 'हिंदी',
+            'app-description': 'स्मार्ट ऑफलाइन कैशिंग, निर्बाध गीत स्विचिंग और पेशेवर प्लेलिस्ट प्रबंधन प्रदान करता है, जिससे आप कम लागत पर विज्ञापन-मुक्त YouTube संगीत का आनंद ले सकते हैं।',
+            'core-advantages': 'मुख्य लाभ',
+            'advantage-1-title': 'किफायती:',
+            'advantage-1-desc': 'आजीवन उपयोग के लिए एकमुश्त खरीद, लगातार बढ़ते YouTube प्रीमियम सदस्यता शुल्क से छुटकारा पाएं, कम लागत पर गुणवत्तापूर्ण संगीत का आनंद लें',
+            'advantage-2-title': 'सहज अनुभव:',
+            'advantage-2-desc': 'स्मार्ट ऑडियो निष्कर्षण तकनीक आपको YouTube के विशाल संगीत पुस्तकालय का आनंद लेने देती है, ऑफलाइन प्लेबैक डेटा बचाता है, नेटवर्क उतार-चढ़ाव के बारे में चिंता करने की जरूरत नहीं',
+            'advantage-3-title': 'स्थायी भंडारण:',
+            'advantage-3-desc': 'स्थानीय प्लेलिस्ट प्रबंधन प्रणाली आपको अपने संगीत संग्रह पर पूर्ण नियंत्रण देती है, अब प्लेटफॉर्म सीमाओं से प्रतिबंधित नहीं, सामग्री हटाने के जोखिमों से बचना',
+            'download-btn': 'अभी डाउनलोड करें',
+            'app-preview': 'ऐप इंटरफेस पूर्वावलोकन',
+            'home-page': 'होम',
+            'discover-page': 'खोजें',
+            'playlist-page': 'प्लेलिस्ट',
+            'features-title': 'मुख्य विशेषताएँ',
+            'features-subtitle': 'संगीत प्रेमियों के लिए डिज़ाइन किया गया ऑफलाइन प्लेबैक समाधान',
+            'feature-1-title': 'किफायती',
+            'feature-1-desc': 'एकमुश्त भुगतान, आजीवन उपयोग, बढ़ते सदस्यता शुल्क का भुगतान करने की आवश्यकता नहीं, आपको बहुत सारे खर्चों की बचत।',
+            'feature-2-title': 'ऑफलाइन प्लेबैक',
+            'feature-2-desc': 'अपने पसंदीदा संगीत को स्मार्ट रूप से कैश करें, नेटवर्क कनेक्शन की चिंता किए बिना, कभी भी, कहीं भी आनंद लें, डेटा उपयोग बचाएं।',
+            'feature-3-title': 'स्थानीय प्रबंधन',
+            'feature-3-desc': 'अपनी विशेष प्लेलिस्ट बनाएं और प्रबंधित करें, अपने पसंदीदा संगीत को स्थायी रूप से सहेजें, प्लेटफॉर्म सामग्री परिवर्तनों से प्रभावित न हों।',
+            'download-title': 'अभी हमारा ऐप अनुभव करें',
+            'download-subtitle': 'वर्तमान में केवल iOS डिवाइस का समर्थन करता है, उच्च गुणवत्ता वाले संगीत अनुभव का आनंद लेने के लिए App Store से डाउनलोड करें।',
+            'legal-info': 'कानूनी जानकारी',
+            'privacy-policy': 'गोपनीयता नीति',
+            'terms-of-service': 'सेवा की शर्तें',
+            'cookie-policy': 'कुकी नीति',
+            'copyright': '&copy; 2023 Youtube Offline Music Player. सर्वाधिकार सुरक्षित।'
+        },
+        'de': {
+            'current-language': 'Deutsch',
+            'app-description': 'Bietet intelligentes Offline-Caching, nahtlosen Liedwechsel und professionelle Playlist-Verwaltung, damit Sie werbefreie YouTube-Musik zu geringeren Kosten genießen können.',
+            'core-advantages': 'Kernvorteile',
+            'advantage-1-title': 'Kostengünstig:',
+            'advantage-1-desc': 'Einmaliger Kauf für lebenslange Nutzung, verabschieden Sie sich von den ständig steigenden YouTube Premium-Abonnementgebühren, genießen Sie Qualitätsmusik zu geringeren Kosten',
+            'advantage-2-title': 'Reibungsloses Erlebnis:',
+            'advantage-2-desc': 'Intelligente Audioextraktionstechnologie lässt Sie die umfangreiche Musikbibliothek von YouTube genießen, Offline-Wiedergabe spart Daten, keine Sorgen mehr über Netzwerkschwankungen',
+            'advantage-3-title': 'Dauerhafte Speicherung:',
+            'advantage-3-desc': 'Das lokale Playlist-Verwaltungssystem gibt Ihnen vollständige Kontrolle über Ihre Musiksammlung, nicht mehr durch Plattformbeschränkungen eingeschränkt, Vermeidung von Risiken der Inhaltsent fernung',
+            'download-btn': 'Jetzt Herunterladen',
+            'app-preview': 'App-Oberflächen Vorschau',
+            'home-page': 'Startseite',
+            'discover-page': 'Entdecken',
+            'playlist-page': 'Playlist',
+            'features-title': 'Hauptfunktionen',
+            'features-subtitle': 'Offline-Wiedergabelösung für Musikliebhaber',
+            'feature-1-title': 'Kostengünstig',
+            'feature-1-desc': 'Einmalige Zahlung, lebenslange Nutzung, keine Notwendigkeit, steigende Abonnementgebühren zu zahlen, spart Ihnen viele Ausgaben.',
+            'feature-2-title': 'Offline-Wiedergabe',
+            'feature-2-desc': 'Speichern Sie Ihre Lieblingsmusik intelligent im Cache, genießen Sie sie jederzeit und überall, ohne sich um die Netzwerkverbindung zu sorgen, sparen Sie Datennutzung.',
+            'feature-3-title': 'Lokale Verwaltung',
+            'feature-3-desc': 'Erstellen und verwalten Sie Ihre exklusiven Playlists, speichern Sie Ihre Lieblingsmusik dauerhaft, unbeeinträchtigt von Plattforminhaltsänderungen.',
+            'download-title': 'Erleben Sie Unsere App Jetzt',
+            'download-subtitle': 'Unterstützt derzeit nur iOS-Geräte, laden Sie es aus dem App Store herunter, um ein hochwertiges Musikerlebnis zu genießen.',
+            'legal-info': 'Rechtliche Informationen',
+            'privacy-policy': 'Datenschutzrichtlinie',
+            'terms-of-service': 'Nutzungsbedingungen',
+            'cookie-policy': 'Cookie-Richtlinie',
+            'copyright': '&copy; 2023 Youtube Offline Music Player. Alle Rechte vorbehalten.'
+        },
+        'ar': {
+            'current-language': 'العربية',
+            'app-description': 'يوفر تخزين ذكي دون اتصال، وتبديل سلس للأغاني، وإدارة احترافية لقوائم التشغيل، مما يتيح لك الاستمتاع بموسيقى يوتيوب بدون إعلانات بتكلفة أقل.',
+            'core-advantages': 'المزايا الأساسية',
+            'advantage-1-title': 'اقتصادي:',
+            'advantage-1-desc': 'شراء لمرة واحدة للاستخدام مدى الحياة، قل وداعًا لرسوم اشتراك يوتيوب بريميوم المتزايدة باستمرار، استمتع بالموسيقى عالية الجودة بتكلفة أقل',
+            'advantage-2-title': 'تجربة سلسة:',
+            'advantage-2-desc': 'تتيح لك تقنية استخراج الصوت الذكية الاستمتاع بمكتبة موسيقى يوتيوب الضخمة، يوفر التشغيل دون اتصال البيانات، لا داعي للقلق بشأن تقلبات الشبكة',
+            'advantage-3-title': 'تخزين دائم:',
+            'advantage-3-desc': 'يمنحك نظام إدارة قوائم التشغيل المحلية تحكمًا كاملاً في مجموعة الموسيقى الخاصة بك، لم تعد مقيدًا بقيود المنصة، تجنب مخاطر إزالة المحتوى',
+            'download-btn': 'تحميل الآن',
+            'app-preview': 'معاينة واجهة التطبيق',
+            'home-page': 'الرئيسية',
+            'discover-page': 'اكتشاف',
+            'playlist-page': 'قائمة التشغيل',
+            'features-title': 'الميزات الرئيسية',
+            'features-subtitle': 'حل تشغيل دون اتصال مصمم لعشاق الموسيقى',
+            'feature-1-title': 'اقتصادي',
+            'feature-1-desc': 'دفع لمرة واحدة، استخدام مدى الحياة، لا حاجة لدفع رسوم اشتراك متزايدة، مما يوفر لك الكثير من النفقات.',
+            'feature-2-title': 'تشغيل دون اتصال',
+            'feature-2-desc': 'قم بتخزين موسيقاك المفضلة بذكاء، استمتع في أي وقت وفي أي مكان، دون القلق بشأن اتصال الشبكة، مما يوفر استخدام البيانات.',
+            'feature-3-title': 'إدارة محلية',
+            'feature-3-desc': 'قم بإنشاء وإدارة قوائم التشغيل الحصرية الخاصة بك، احفظ موسيقاك المفضلة بشكل دائم، دون أن تتأثر بتغييرات محتوى المنصة.',
+            'download-title': 'جرب تطبيقنا الآن',
+            'download-subtitle': 'يدعم حاليًا أجهزة iOS فقط، قم بالتنزيل من App Store للاستمتاع بتجربة موسيقية عالية الجودة.',
+            'legal-info': 'المعلومات القانونية',
+            'privacy-policy': 'سياسة الخصوصية',
+            'terms-of-service': 'شروط الخدمة',
+            'cookie-policy': 'سياسة ملفات تعريف الارتباط',
+            'copyright': '&copy; 2023 Youtube Offline Music Player. جميع الحقوق محفوظة.'
+        }
+    };
 
-    <!-- 页脚 -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3 id="legal-info">Legal Information</h3>
-                    <ul>
-                        <li><a href="#" id="privacy-policy">Privacy Policy</a></li>
-                        <li><a href="#" id="terms-of-service">Terms of Service</a></li>
-                        <li><a href="#" id="cookie-policy">Cookie Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p id="copyright">&copy; 2023 Youtube Offline Music Player. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    // App Store国家/地区代码映射
+    const appStoreCountryCodes = {
+        'zh': 'us',    // 中文 - 美国
+        'en': 'us',    // 英语 - 美国
+        'pt': 'br',    // 葡萄牙语 - 巴西
+        'es': 'es',    // 西班牙语 - 西班牙
+        'fr': 'fr',    // 法语 - 法国
+        'ru': 'ru',    // 俄语 - 俄罗斯
+        'tr': 'tr',    // 土耳其语 - 土耳其
+        'hi': 'in',    // 印地语 - 印度
+        'de': 'de',    // 德语 - 德国
+        'ar': 'sa'     // 阿拉伯语 - 沙特阿拉伯
+    };
 
-    <script>
-        // 多语言支持
-        const translations = {
-            'zh': {
-                'current-language': '简体中文',
-                'app-description': '提供智能离线缓存、无缝切歌和专业歌单管理，让你在更低成本下享受无广告的YouTube音乐体验。',
-                'core-advantages': '核心优势',
-                'advantage-1-title': '经济实惠：',
-                'advantage-1-desc': '一次性购买终身使用，彻底告别 YouTube Premium 持续增长的订阅费用，更低成本享受优质音乐',
-                'advantage-2-title': '流畅体验：',
-                'advantage-2-desc': '智能音频提取技术让您畅享 YouTube 海量音乐库，离线播放节省流量，无需担心网络波动',
-                'advantage-3-title': '永久保存：',
-                'advantage-3-desc': '本地歌单管理系统让您完全掌控音乐收藏，不再受平台限制，规避内容下架风险',
-                'download-btn': '立即下载',
-                'app-preview': '应用界面预览',
-                'home-page': '首页',
-                'discover-page': '发现',
-                'playlist-page': '播放列表',
-                'features-title': '主要特性',
-                'features-subtitle': '专为音乐爱好者打造的离线播放解决方案',
-                'feature-1-title': '经济实惠',
-                'feature-1-desc': '一次性付费，终身使用，无需支付持续增长的订阅费用，为您节省大量开支。',
-                'feature-2-title': '离线播放',
-                'feature-2-desc': '智能缓存您喜爱的音乐，随时随地欣赏，无需担心网络连接，节省流量消耗。',
-                'feature-3-title': '本地管理',
-                'feature-3-desc': '创建和管理您的专属歌单，永久保存您喜爱的音乐，不受平台内容变动影响。',
-                'download-title': '立即体验我们的应用',
-                'download-subtitle': '目前仅支持iOS设备，下载从App Store享受高品质音乐体验。',
-                'legal-info': '法律信息',
-                'privacy-policy': '隐私政策',
-                'terms-of-service': '服务条款',
-                'cookie-policy': 'Cookie 政策',
-                'copyright': '&copy; 2023 Youtube Offline Music Player. 保留所有权利。'
-            },
-            'en': {
-                'current-language': 'English',
-                'app-description': 'Provides intelligent offline caching, seamless song switching, and professional playlist management, allowing you to enjoy ad-free YouTube music at a lower cost.',
-                'core-advantages': 'Core Advantages',
-                'advantage-1-title': 'Cost-Effective:',
-                'advantage-1-desc': 'One-time purchase for lifetime use, say goodbye to the ever-increasing YouTube Premium subscription fees, enjoy quality music at a lower cost',
-                'advantage-2-title': 'Smooth Experience:',
-                'advantage-2-desc': 'Smart audio extraction technology lets you enjoy YouTube\'s vast music library, offline playback saves data, no need to worry about network fluctuations',
-                'advantage-3-title': 'Permanent Storage:',
-                'advantage-3-desc': 'Local playlist management system gives you complete control over your music collection, no longer restricted by platform limitations, avoiding content removal risks',
-                'download-btn': 'Download Now',
-                'app-preview': 'App Interface Preview',
-                'home-page': 'Home',
-                'discover-page': 'Discover',
-                'playlist-page': 'Playlist',
-                'features-title': 'Main Features',
-                'features-subtitle': 'Offline playback solution designed for music lovers',
-                'feature-1-title': 'Cost-Effective',
-                'feature-1-desc': 'One-time payment, lifetime use, no need to pay increasing subscription fees, saving you a lot of expenses.',
-                'feature-2-title': 'Offline Playback',
-                'feature-2-desc': 'Intelligently cache your favorite music, enjoy anytime, anywhere, without worrying about network connection, saving data usage.',
-                'feature-3-title': 'Local Management',
-                'feature-3-desc': 'Create and manage your exclusive playlists, permanently save your favorite music, unaffected by platform content changes.',
-                'download-title': 'Experience Our App Now',
-                'download-subtitle': 'Currently only supports iOS devices, download from App Store to enjoy high-quality music experience.',
-                'legal-info': 'Legal Information',
-                'privacy-policy': 'Privacy Policy',
-                'terms-of-service': 'Terms of Service',
-                'cookie-policy': 'Cookie Policy',
-                'copyright': '&copy; 2023 Youtube Offline Music Player. All rights reserved.'
-            },
-            'pt': {
-                'current-language': 'Português',
-                'app-description': 'Oferece cache offline inteligente, troca de músicas sem interrupções e gerenciamento profissional de playlists, permitindo que você desfrute de música do YouTube sem anúncios a um custo menor.',
-                'core-advantages': 'Vantagens Principais',
-                'advantage-1-title': 'Econômico:',
-                'advantage-1-desc': 'Compra única para uso vitalício, diga adeus às taxas crescentes de assinatura do YouTube Premium, desfrute de música de qualidade a um custo menor',
-                'advantage-2-title': 'Experiência Fluida:',
-                'advantage-2-desc': 'A tecnologia inteligente de extração de áudio permite que você desfrute da vasta biblioteca de música do YouTube, reprodução offline economiza dados, sem preocupações com flutuações de rede',
-                'advantage-3-title': 'Armazenamento Permanente:',
-                'advantage-3-desc': 'O sistema de gerenciamento de playlist local dá a você controle total sobre sua coleção de música, sem restrições de plataforma, evitando riscos de remoção de conteúdo',
-                'download-btn': 'Baixar Agora',
-                'app-preview': 'Prévia da Interface do Aplicativo',
-                'home-page': 'Início',
-                'discover-page': 'Descobrir',
-                'playlist-page': 'Playlist',
-                'features-title': 'Principais Recursos',
-                'features-subtitle': 'Solução de reprodução offline projetada para amantes de música',
-                'feature-1-title': 'Econômico',
-                'feature-1-desc': 'Pagamento único, uso vitalício, sem necessidade de pagar taxas de assinatura crescentes, economizando muito em despesas.',
-                'feature-2-title': 'Reprodução Offline',
-                'feature-2-desc': 'Cache inteligente de suas músicas favoritas, desfrute a qualquer hora, em qualquer lugar, sem se preocupar com conexão de rede, economizando uso de dados.',
-                'feature-3-title': 'Gerenciamento Local',
-                'feature-3-desc': 'Crie e gerencie suas playlists exclusivas, salve permanentemente suas músicas favoritas, sem ser afetado por mudanças de contenu da plataforma.',
-                'download-title': 'Experimente Nosso Aplicativo Agora',
-                'download-subtitle': 'Atualmente disponível apenas para dispositivos iOS, baixe na App Store para desfrutar de uma experiência musical de alta qualidade.',
-                'legal-info': 'Informações Legais',
-                'privacy-policy': 'Política de Privacidade',
-                'terms-of-service': 'Termos de Serviço',
-                'cookie-policy': 'Política de Cookies',
-                'copyright': '&copy; 2023 Youtube Offline Music Player. Todos os direitos reservados.'
-            },
-            'es': {
-                'current-language': 'Español',
-                'app-description': 'Proporciona almacenamiento inteligente sin conexión, cambio de canciones sin interrupciones y gestión profesional de listas de reproducción, permitiéndote disfrutar de música de YouTube sin anuncios a un costo menor.',
-                'core-advantages': 'Ventajas Principales',
-                'advantage-1-title': 'Económico:',
-                'advantage-1-desc': 'Compra única para uso de por vida, diga adiós a las tarifas crecientes de suscripción de YouTube Premium, disfrute de música de calidad a un costo menor',
-                'advantage-2-title': 'Experiencia Fluida:',
-                'advantage-2-desc': 'La tecnología inteligente de extracción de audio le permite disfrutar de la vasta biblioteca de música de YouTube, la reproducción sin conexión ahorra datos, sin preocuparse por las fluctuaciones de la red',
-                'advantage-3-title': 'Almacenamiento Permanente:',
-                'advantage-3-desc': 'El sistema de gestión de listas de reproducción local le da control total sobre su colección de música, sin restricciones de plataforma, evitando riesgos de eliminación de contenido',
-                'download-btn': 'Descargar Ahora',
-                'app-preview': 'Vista Previa de la Interfaz de la Aplicación',
-                'home-page': 'Inicio',
-                'discover-page': 'Descubrir',
-                'playlist-page': 'Lista de Reproducción',
-                'features-title': 'Características Principales',
-                'features-subtitle': 'Solución de reproducción sin conexión diseñada para amantes de la música',
-                'feature-1-title': 'Económico',
-                'feature-1-desc': 'Pago único, uso de por vida, sin necesidad de pagar tarifas de suscripción crecientes, ahorrándole muchos gastos.',
-                'feature-2-title': 'Reproducción Sin Conexión',
-                'feature-2-desc': 'Almacene inteligentemente su música favorita, disfrute en cualquier momento y lugar, sin preocuparse por la conexión de red, ahorrando uso de datos.',
-                'feature-3-title': 'Gestión Local',
-                'feature-3-desc': 'Cree y gestione sus listas de reproducción exclusivas, guarde permanentemente su música favorita, sin verse afectado por los cambios de contenido de la plataforma.',
-                'download-title': 'Experimente Nuestra Aplicación Ahora',
-                'download-subtitle': 'Actualmente solo compatible con dispositivos iOS, descárgalo desde App Store para disfrutar de una experiencia musical de alta calidad.',
-                'legal-info': 'Información Legal',
-                'privacy-policy': 'Política de Privacidad',
-                'terms-of-service': 'Términos de Servicio',
-                'cookie-policy': 'Política de Cookies',
-                'copyright': '&copy; 2023 Youtube Offline Music Player. Todos los derechos reservados.'
-            },
-            'fr': {
-                'current-language': 'Français',
-                'app-description': 'Offre une mise en cache intelligente hors ligne, un changement de chanson fluide et une gestion professionnelle des playlists, vous permettant de profiter de la musique YouTube sans publicité à moindre coût.',
-                'core-advantages': 'Avantages Principaux',
-                'advantage-1-title': 'Économique:',
-                'advantage-1-desc': 'Achat unique pour une utilisation à vie, dites adieu aux frais d\'abonnement croissants de YouTube Premium, profitez d\'une musique de qualité à moindre coût',
-                'advantage-2-title': 'Expérience Fluide:',
-                'advantage-2-desc': 'La technologie intelligente d\'extraction audio vous permet de profiter de la vaste bibliothèque musicale de YouTube, la lecture hors ligne économise des données, plus besoin de vous soucier des fluctuations du réseau',
-                'advantage-3-title': 'Stockage Permanent:',
-                'advantage-3-desc': 'Le système de gestion de playlist local vous donne un contrôle total sur votre collection de musique, plus de restrictions de plateforme, évitant les risques de suppression de contenu',
-                'download-btn': 'Télécharger Maintenant',
-                'app-preview': 'Aperçu de l\'Interface de l\'Application',
-                'home-page': 'Accueil',
-                'discover-page': 'Découvrir',
-                'playlist-page': 'Playlist',
-                'features-title': 'Fonctionnalités Principales',
-                'features-subtitle': 'Solution de lecture hors ligne conçue pour les amateurs de musique',
-                'feature-1-title': 'Économique',
-                'feature-1-desc': 'Paiement unique, utilisation à vie, pas besoin de payer des frais d\'abonnement croissants, vous économisant beaucoup de dépenses.',
-                'feature-2-title': 'Lecture Hors Ligne',
-                'feature-2-desc': 'Mettez intelligemment en cache votre musique préférée, profitez-en n\'importe quand, n\'importe où, sans vous soucier de la connexion réseau, économisant l\'utilisation des données.',
-                'feature-3-title': 'Gestion Locale',
-                'feature-3-desc': 'Créez et gérez vos playlists exclusives, enregistrez définitivement votre musique préférée, sans être affecté par les changements de contenu de la plateforme.',
-                'download-title': 'Essayez Notre Application Maintenant',
-                'download-subtitle': 'Actuellement compatible uniquement avec les appareils iOS, téléchargez depuis l\'App Store pour profiter d\'une expérience musicale de haute qualité.',
-                'legal-info': 'Informations Légales',
-                'privacy-policy': 'Politique de Confidentialité',
-                'terms-of-service': 'Conditions d\'Utilisation',
-                'cookie-policy': 'Politique de Cookies',
-                'copyright': '&copy; 2023 Youtube Offline Music Player. Tous droits réservés.'
-            },
-            'ru': {
-                'current-language': 'Русский',
-                'app-description': 'Предлагает интеллектуальное офлайн-кэширование, плавное переключение песен и профессиональное управление плейлистами, позволяя вам наслаждаться музыкой YouTube без рекламы по более низкой цене.',
-                'core-advantages': 'Основные Преимущества',
-                'advantage-1-title': 'Экономично:',
-                'advantage-1-desc': 'Единовременная покупка для пожизненного использования, попрощайтесь с постоянно растущими платежами за подписку YouTube Premium, наслаждайтесь качественной музыкой по более низкой цене',
-                'advantage-2-title': 'Плавный Опыт:',
-                'advantage-2-desc': 'Интеллектуальная технология извлечения аудио позволяет вам наслаждаться обширной музыкальной библиотекой YouTube, офлайн-воспроизведение экономит данные, не нужно беспокоиться о колебаниях сети',
-                'advantage-3-title': 'Постоянное Хранение:',
-                'advantage-3-desc': 'Система управления локальными плейлистами дает вам полный контроль над вашей музыкальной коллекцией, больше нет ограничений платформы, избегая рисков удаления контента',
-                'download-btn': 'Скачать Сейчас',
-                'app-preview': 'Предварительный Просмотр Интерфейса Приложения',
-                'home-page': 'Главная',
-                'discover-page': 'Открыть',
-                'playlist-page': 'Плейлист',
-                'features-title': 'Основные Функции',
-                'features-subtitle': 'Решение для офлайн-воспроизведения, разработанное для любителей музыки',
-                'feature-1-title': 'Экономично',
-                'feature-1-desc': 'Единовременный платеж, пожизненное использование, не нужно платить растущие абонентские платежи, экономя вам много расходов.',
-                'feature-2-title': 'Офлайн-Воспроизведение',
-                'feature-2-desc': 'Интеллектуально кэшируйте вашу любимую музыку, наслаждайтесь в любое время, в любом месте, не беспокоясь о сетевом подключении, экономя использование данных.',
-                'feature-3-title': 'Локальное Управление',
-                'feature-3-desc': 'Создавайте и управляйте своими эксклюзивными плейлистами, навсегда сохраняйте свою любимую музыку, не подвергаясь влиянию изменений контента платформы.',
-                'download-title': 'Испытайте Наше Приложение Сейчас',
-                'download-subtitle': 'В настоящее время поддерживаются только устройства iOS, загрузите из App Store, чтобы насладиться высококачественным музыкальным опытом.',
-                'legal-info': 'Юридическая Информация',
-                'privacy-policy': 'Политика Конфиденциальности',
-                'terms-of-service': 'Условия Использования',
-                'cookie-policy': 'Политика Cookies',
-                'copyright': '&copy; 2023 Youtube Offline Music Player. Все права защищены.'
-            },
-            'tr': {
-                'current-language': 'Türkçe',
-                'app-description': 'Akıllı çevrimdışı önbelleğe alma, kesintisiz şarkı değiştirme ve profesyonel çalma listesi yönetimi sunarak, YouTube müziğini daha düşük maliyetle reklamsız olarak keyifle dinlemenizi sağlar.',
-                'core-advantages': 'Temel Avantajlar',
-                'advantage-1-title': 'Ekonomik:',
-                'advantage-1-desc': 'Ömür boyu kullanım için tek seferlik satın alma, sürekli artan YouTube Premium abonelik ücretlerine veda edin, kaliteli müziği daha düşük maliyetle keyfini çıkarın',
-                'advantage-2-title': 'Akıcı Deneyim:',
-                'advantage-2-desc': 'Akıllı ses çıkarma teknolojisi, YouTube\'un geniş müzik kütüphanesinin keyfini çıkarmanızı sağlar, çevrimdışı oynatma veri tasarrufu sağlar, ağ dalgalanmaları hakkında endişelenmenize gerek yok',
-                'advantage-3-title': 'Kalıcı Depolama:',
-                'advantage-3-desc': 'Yerel çalma listesi yönetim sistemi, müzik koleksiyonunuz üzerinde tam kontrol sağlar, platform sınırlamaları yok, içerik kaldırma risklerinden kaçınma',
-                'download-btn': 'Şimdi İndir',
-                'app-preview': 'Uygulama Arayüzü Önizlemesi',
-                'home-page': 'Ana Sayfa',
-                'discover-page': 'Keşfet',
-                'playlist-page': 'Çalma Listesi',
-                'features-title': 'Ana Özellikler',
-                'features-subtitle': 'Müzik severler için tasarlanmış çevrimdışı oynatma çözümü',
-                'feature-1-title': 'Ekonomik',
-                'feature-1-desc': 'Tek seferlik ödeme, ömür boyu kullanım, artan abonelik ücretlerini ödemeye gerek yok, size birçok masraftan tasarruf sağlar.',
-                'feature-2-title': 'Çevrimdışı Oynatma',
-                'feature-2-desc': 'Favori müziğinizi akıllıca önbelleğe alın, ağ bağlantısı konusunda endişelenmeden, istediğiniz zaman, istediğiniz yerde keyfini çıkarın, veri kullanımından tasarruf edin.',
-                'feature-3-title': 'Yerel Yönetim',
-                'feature-3-desc': 'Özel çalma listelerinizi oluşturun ve yönetin, favori müziğinizi kalıcı olarak kaydedin, platform içerik değişikliklerinden etkilenmeyin.',
-                'download-title': 'Uygulamamızı Şimdi Deneyin',
-                'download-subtitle': 'Şu anda yalnızca iOS cihazlarını destekler, yüksek kaliteli müzik deneyiminin keyfini çıkarmak için App Store\'dan indirin.',
-                'legal-info': 'Yasal Bilgiler',
-                'privacy-policy': 'Gizlilik Politikası',
-                'terms-of-service': 'Kullanım Koşulları',
-                'cookie-policy': 'Çerez Politikası',
-                'copyright': '&copy; 2023 Youtube Offline Music Player. Tüm hakları saklıdır.'
-            },
-            'hi': {
-                'current-language': 'हिंदी',
-                'app-description': 'स्मार्ट ऑफलाइन कैशिंग, निर्बाध गीत स्विचिंग और पेशेवर प्लेलिस्ट प्रबंधन प्रदान करता है, जिससे आप कम लागत पर विज्ञापन-मुक्त YouTube संगीत का आनंद ले सकते हैं।',
-                'core-advantages': 'मुख्य लाभ',
-                'advantage-1-title': 'किफायती:',
-                'advantage-1-desc': 'आजीवन उपयोग के लिए एकमुश्त खरीद, लगातार बढ़ते YouTube प्रीमियम सदस्यता शुल्क से छुटकारा पाएं, कम लागत पर गुणवत्तापूर्ण संगीत का आनंद लें',
-                'advantage-2-title': 'सहज अनुभव:',
-                'advantage-2-desc': 'स्मार्ट ऑडियो निष्कर्षण तकनीक आपको YouTube के विशाल संगीत पुस्तकालय का आनंद लेने देती है, ऑफलाइन प्लेबैक डेटा बचाता है, नेटवर्क उतार-चढ़ाव के बारे में चिंता करने की जरूरत नहीं',
-                'advantage-3-title': 'स्थायी भंडारण:',
-                'advantage-3-desc': 'स्थानीय प्लेलिस्ट प्रबंधन प्रणाली आपको अपने संगीत संग्रह पर पूर्ण नियंत्रण देती है, अब प्लेटफॉर्म सीमाओं से प्रतिबंधित नहीं, सामग्री हटाने के जोखिमों से बचना',
-                'download-btn': 'अभी डाउनलोड करें',
-                'app-preview': 'ऐप इंटरफेस पूर्वावलोकन',
-                'home-page': 'होम',
-                'discover-page': 'खोजें',
-                'playlist-page': 'प्लेलिस्ट',
-                'features-title': 'मुख्य विशेषताएँ',
-                'features-subtitle': 'संगीत प्रेमियों के लिए डिज़ाइन किया गया ऑफलाइन प्लेबैक समाधान',
-                'feature-1-title': 'किफायती',
-                'feature-1-desc': 'एकमुश्त भुगतान, आजीवन उपयोग, बढ़ते सदस्यता शुल्क का भुगतान करने की आवश्यकता नहीं, आपको बहुत सारे खर्चों की बचत।',
-                'feature-2-title': 'ऑफलाइन प्लेबैक',
-                'feature-2-desc': 'अपने पसंदीदा संगीत को स्मार्ट रूप से कैश करें, नेटवर्क कनेक्शन की चिंता किए बिना, कभी भी, कहीं भी आनंद लें, डेटा उपयोग बचाएं।',
-                'feature-3-title': 'स्थानीय प्रबंधन',
-                'feature-3-desc': 'अपनी विशेष प्लेलिस्ट बनाएं और प्रबंधित करें, अपने पसंदीदा संगीत को स्थायी रूप से सहेजें, प्लेटफॉर्म सामग्री परिवर्तनों से प्रभावित न हों।',
-                'download-title': 'अभी हमारा ऐप अनुभव करें',
-                'download-subtitle': 'वर्तमान में केवल iOS डिवाइस का समर्थन करता है, उच्च गुणवत्ता वाले संगीत अनुभव का आनंद लेने के लिए App Store से डाउनलोड करें।',
-                'legal-info': 'कानूनी जानकारी',
-                'privacy-policy': 'गोपनीयता नीति',
-                'terms-of-service': 'सेवा की शर्तें',
-                'cookie-policy': 'कुकी नीति',
-                'copyright': '&copy; 2023 Youtube Offline Music Player. सर्वाधिकार सुरक्षित।'
-            },
-            'de': {
-                'current-language': 'Deutsch',
-                'app-description': 'Bietet intelligentes Offline-Caching, nahtlosen Liedwechsel und professionelle Playlist-Verwaltung, damit Sie werbefreie YouTube-Musik zu geringeren Kosten genießen können.',
-                'core-advantages': 'Kernvorteile',
-                'advantage-1-title': 'Kostengünstig:',
-                'advantage-1-desc': 'Einmaliger Kauf für lebenslange Nutzung, verabschieden Sie sich von den ständig steigenden YouTube Premium-Abonnementgebühren, genießen Sie Qualitätsmusik zu geringeren Kosten',
-                'advantage-2-title': 'Reibungsloses Erlebnis:',
-                'advantage-2-desc': 'Intelligente Audioextraktionstechnologie lässt Sie die umfangreiche Musikbibliothek von YouTube genießen, Offline-Wiedergabe spart Daten, keine Sorgen mehr über Netzwerkschwankungen',
-                'advantage-3-title': 'Dauerhafte Speicherung:',
-                'advantage-3-desc': 'Das lokale Playlist-Verwaltungssystem gibt Ihnen vollständige Kontrolle über Ihre Musiksammlung, nicht mehr durch Plattformbeschränkungen eingeschränkt, Vermeidung von Risiken der Inhaltsent fernung',
-                'download-btn': 'Jetzt Herunterladen',
-                'app-preview': 'App-Oberflächen Vorschau',
-                'home-page': 'Startseite',
-                'discover-page': 'Entdecken',
-                'playlist-page': 'Playlist',
-                'features-title': 'Hauptfunktionen',
-                'features-subtitle': 'Offline-Wiedergabelösung für Musikliebhaber',
-                'feature-1-title': 'Kostengünstig',
-                'feature-1-desc': 'Einmalige Zahlung, lebenslange Nutzung, keine Notwendigkeit, steigende Abonnementgebühren zu zahlen, spart Ihnen viele Ausgaben.',
-                'feature-2-title': 'Offline-Wiedergabe',
-                'feature-2-desc': 'Speichern Sie Ihre Lieblingsmusik intelligent im Cache, genießen Sie sie jederzeit und überall, ohne sich um die Netzwerkverbindung zu sorgen, sparen Sie Datennutzung.',
-                'feature-3-title': 'Lokale Verwaltung',
-                'feature-3-desc': 'Erstellen und verwalten Sie Ihre exklusiven Playlists, speichern Sie Ihre Lieblingsmusik dauerhaft, unbeeinträchtigt von Plattforminhaltsänderungen.',
-                'download-title': 'Erleben Sie Unsere App Jetzt',
-                'download-subtitle': 'Unterstützt derzeit nur iOS-Geräte, laden Sie es aus dem App Store herunter, um ein hochwertiges Musikerlebnis zu genießen.',
-                'legal-info': 'Rechtliche Informationen',
-                'privacy-policy': 'Datenschutzrichtlinie',
-                'terms-of-service': 'Nutzungsbedingungen',
-                'cookie-policy': 'Cookie-Richtlinie',
-                'copyright': '&copy; 2023 Youtube Offline Music Player. Alle Rechte vorbehalten.'
-            },
-            'ar': {
-                'current-language': 'العربية',
-                'app-description': 'يوفر تخزين ذكي دون اتصال، وتبديل سلس للأغاني، وإدارة احترافية لقوائم التشغيل، مما يتيح لك الاستمتاع بموسيقى يوتيوب بدون إعلانات بتكلفة أقل.',
-                'core-advantages': 'المزايا الأساسية',
-                'advantage-1-title': 'اقتصادي:',
-                'advantage-1-desc': 'شراء لمرة واحدة للاستخدام مدى الحياة، قل وداعًا لرسوم اشتراك يوتيوب بريميوم المتزايدة باستمرار، استمتع بالموسيقى عالية الجودة بتكلفة أقل',
-                'advantage-2-title': 'تجربة سلسة:',
-                'advantage-2-desc': 'تتيح لك تقنية استخراج الصوت الذكية الاستمتاع بمكتبة موسيقى يوتيوب الضخمة، يوفر التشغيل دون اتصال البيانات، لا داعي للقلق بشأن تقلبات الشبكة',
-                'advantage-3-title': 'تخزين دائم:',
-                'advantage-3-desc': 'يمنحك نظام إدارة قوائم التشغيل المحلية تحكمًا كاملاً في مجموعة الموسيقى الخاصة بك، لم تعد مقيدًا بقيود المنصة، تجنب مخاطر إزالة المحتوى',
-                'download-btn': 'تحميل الآن',
-                'app-preview': 'معاينة واجهة التطبيق',
-                'home-page': 'الرئيسية',
-                'discover-page': 'اكتشاف',
-                'playlist-page': 'قائمة التشغيل',
-                'features-title': 'الميزات الرئيسية',
-                'features-subtitle': 'حل تشغيل دون اتصال مصمم لعشاق الموسيقى',
-                'feature-1-title': 'اقتصادي',
-                'feature-1-desc': 'دفع لمرة واحدة، استخدام مدى الحياة، لا حاجة لدفع رسوم اشتراك متزايدة، مما يوفر لك الكثير من النفقات.',
-                'feature-2-title': 'تشغيل دون اتصال',
-                'feature-2-desc': 'قم بتخزين موسيقاك المفضلة بذكاء، استمتع في أي وقت وفي أي مكان، دون القلق بشأن اتصال الشبكة، مما يوفر استخدام البيانات.',
-                'feature-3-title': 'إدارة محلية',
-                'feature-3-desc': 'قم بإنشاء وإدارة قوائم التشغيل الحصرية الخاصة بك، احفظ موسيقاك المفضلة بشكل دائم، دون أن تتأثر بتغييرات محتوى المنصة.',
-                'download-title': 'جرب تطبيقنا الآن',
-                'download-subtitle': 'يدعم حاليًا أجهزة iOS فقط، قم بالتنزيل من App Store للاستمتاع بتجربة موسيقية عالية الجودة.',
-                'legal-info': 'المعلومات القانونية',
-                'privacy-policy': 'سياسة الخصوصية',
-                'terms-of-service': 'شروط الخدمة',
-                'cookie-policy': 'سياسة ملفات تعريف الارتباط',
-                'copyright': '&copy; 2023 Youtube Offline Music Player. جميع الحقوق محفوظة.'
-            }
-        };
+    // 基础App ID
+    const appId = '6605935428';
 
-        // App Store国家/地区代码映射
-        const appStoreCountryCodes = {
-            'zh': 'us',    // 中文 - 美国
-            'en': 'us',    // 英语 - 美国
-            'pt': 'br',    // 葡萄牙语 - 巴西
-            'es': 'es',    // 西班牙语 - 西班牙
-            'fr': 'fr',    // 法语 - 法国
-            'ru': 'ru',    // 俄语 - 俄罗斯
-            'tr': 'tr',    // 土耳其语 - 土耳其
-            'hi': 'in',    // 印地语 - 印度
-            'de': 'de',    // 德语 - 德国
-            'ar': 'sa'     // 阿拉伯语 - 沙特阿拉伯
-        };
+    function getAppStoreLink(lang) {
+        const countryCode = appStoreCountryCodes[lang] || 'us';
+        return `https://apps.apple.com/${countryCode}/app/snaptube-offline-music-player/id${appId}`;
+    }
 
-        // 基础App ID
-        const appId = '6605935428';
+    function changeLanguage(lang) {
+        // 更新当前显示的语言
+        document.querySelector('.current-language').textContent = translations[lang]['current-language'];
 
-        function getAppStoreLink(lang) {
-            const countryCode = appStoreCountryCodes[lang] || 'us';
-            return `https://apps.apple.com/${countryCode}/app/snaptube-offline-music-player/id${appId}`;
+        // 更新移动端当前显示的语言
+        const mobileLang = document.querySelector('.mobile-current-language');
+        if (mobileLang) {
+            mobileLang.textContent = translations[lang]['current-language'];
         }
 
-        function changeLanguage(lang) {
-            // 更新当前显示的语言
-            document.querySelector('.current-language').textContent = translations[lang]['current-language'];
-            
-            // 更新页面上的所有文本
-            for (const [key, value] of Object.entries(translations[lang])) {
-                const element = document.getElementById(key);
-                if (element) {
-                    if (key === 'copyright') {
-                        element.innerHTML = value;
-                    } else {
-                        element.textContent = value;
-                    }
+        // 更新页面上的所有文本
+        for (const [key, value] of Object.entries(translations[lang])) {
+            const element = document.getElementById(key);
+            if (element) {
+                if (key === 'copyright') {
+                    element.innerHTML = value;
+                } else {
+                    element.textContent = value;
                 }
             }
-            
-            // 为新添加的iOS说明文本设置翻译
-            const iosNotice = document.getElementById('ios-only-notice');
-            if (iosNotice) {
-                iosNotice.textContent = translations[lang]['download-subtitle'];
-            }
-            
-            // 更新App Store链接
-            const appStoreLink = getAppStoreLink(lang);
-            const downloadButtons = document.querySelectorAll('a[href*="apps.apple.com"]');
-            downloadButtons.forEach(button => {
-                button.href = appStoreLink;
-            });
-            
-            // 更新HTML语言属性
-            document.documentElement.lang = lang;
         }
 
-        // 页面加载时设置默认语言为英语
-        document.addEventListener('DOMContentLoaded', function() {
-            // 设置默认语言为英语
-            changeLanguage('en');
-            
-            // 更新App Store链接
-            const appStoreLink = getAppStoreLink('en');
-            const downloadButtons = document.querySelectorAll('a[href*="apps.apple.com"]');
-            downloadButtons.forEach(button => {
-                button.href = appStoreLink;
-            });
+        // 为新添加的iOS说明文本设置翻译
+        const iosNotice = document.getElementById('ios-only-notice');
+        if (iosNotice) {
+            iosNotice.textContent = translations[lang]['download-subtitle'];
+        }
+
+        // 更新App Store链接
+        const appStoreLink = getAppStoreLink(lang);
+        const downloadButtons = document.querySelectorAll('a[href*="apps.apple.com"]');
+        downloadButtons.forEach(button => {
+            button.href = appStoreLink;
         });
-    </script>
+
+        // 更新HTML语言属性
+        document.documentElement.lang = lang;
+    }
+
+    // 移动端菜单控制
+    function toggleMobileMenu() {
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const menuButton = document.querySelector('.mobile-menu-button');
+
+        mobileMenu.classList.toggle('active');
+        menuButton.classList.toggle('active');
+
+        // 防止菜单打开时页面滚动
+        if (mobileMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    }
+
+    function closeMobileMenu() {
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const menuButton = document.querySelector('.mobile-menu-button');
+
+        mobileMenu.classList.remove('active');
+        menuButton.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // 页面加载时设置默认语言为英语
+    document.addEventListener('DOMContentLoaded', function() {
+        // 设置默认语言为英语
+        changeLanguage('en');
+
+        // 更新App Store链接
+        const appStoreLink = getAppStoreLink('en');
+        const downloadButtons = document.querySelectorAll('a[href*="apps.apple.com"]');
+        downloadButtons.forEach(button => {
+            button.href = appStoreLink;
+        });
+
+        // 添加移动端菜单点击事件
+        const menuButton = document.querySelector('.mobile-menu-button');
+        if (menuButton) {
+            menuButton.addEventListener('click', toggleMobileMenu);
+        }
+    });
+</script>
 </body>
 </html> 
