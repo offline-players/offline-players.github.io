@@ -137,6 +137,24 @@
             transition: all 0.3s ease;
         }
 
+        /* 语言选择按钮 */
+        .language-button {
+            display: none;
+            padding: 8px 15px;
+            background-color: #4a6cf7;
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            transition: background-color 0.3s;
+        }
+
+        .language-button:hover {
+            background-color: #3a5bd9;
+        }
+
         /* 移动端菜单 */
         .mobile-menu {
             display: none;
@@ -479,7 +497,11 @@
             }
 
             .mobile-menu-button {
-                display: flex;
+                display: none;
+            }
+
+            .language-button {
+                display: block;
             }
 
             .logo {
@@ -516,6 +538,10 @@
                 <span></span>
                 <span></span>
                 <span></span>
+            </div>
+            <!-- 语言选择按钮 -->
+            <div class="language-button" onclick="toggleMobileMenu()">
+                Language
             </div>
             <!-- 移动端菜单 -->
             <div class="mobile-menu">
@@ -1006,6 +1032,12 @@
         const mobileLang = document.querySelector('.mobile-current-language');
         if (mobileLang) {
             mobileLang.textContent = translations[lang]['current-language'];
+        }
+
+        // 更新语言按钮文本
+        const languageButton = document.querySelector('.language-button');
+        if (languageButton) {
+            languageButton.textContent = translations[lang]['current-language'] || 'Language';
         }
 
         // 更新页面上的所有文本
