@@ -20,6 +20,33 @@
             overflow-x: hidden;
         }
 
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(29, 185, 84, 0.95);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .contact-header {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-header:hover {
+            transform: scale(1.05);
+        }
+
         .hero {
             background: linear-gradient(135deg, #1DB954, #191414);
             min-height: 100vh;
@@ -29,6 +56,7 @@
             padding: 2rem;
             color: white;
             text-align: center;
+            margin-top: 0;
         }
 
         .hero-content {
@@ -45,6 +73,13 @@
             font-size: 1.5rem;
             margin-bottom: 2rem;
             opacity: 0.9;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.8;
         }
 
         .contact-section {
@@ -182,7 +217,54 @@
             color: #1DB954;
         }
 
+        .support-section {
+            padding: 5rem 2rem;
+            background: #fff;
+            text-align: center;
+        }
+
+        .support-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .support-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .support-text {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .support-email {
+            display: inline-block;
+            background: #1DB954;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .support-email:hover {
+            transform: scale(1.05);
+        }
+
         @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+            }
+
+            .contact-header {
+                font-size: 0.9rem;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -208,12 +290,18 @@
     </style>
 </head>
 <body>
+<header class="header">
+    <a href="mailto:support@anbition.net" class="contact-header">
+        <span>📧</span>
+        Contact Support
+    </a>
+</header>
+
 <section class="hero">
     <div class="hero-content animate__animated animate__fadeIn">
-        <!-- 修改标题 -->
         <h1>Offline Music Player - MP3</h1>
         <p>Explore an infinite world of music, let beautiful melodies accompany you</p>
-        <!-- 更新 App Store 跳转链接 -->
+        <p class="hero-description">Offline Music Player is your ultimate companion for enjoying music. With our app, you can create personalized playlists and enjoy high-quality audio playback experience. The friendly interface and powerful functions make listening to music a pleasant experience.</p>
         <a href="https://apps.apple.com/us/app/snaptube-offline-music-player/id6605935428" class="app-store-btn animate__animated animate__pulse animate__infinite">
             Download on App Store
         </a>
@@ -269,6 +357,14 @@
             <h3>Immersive Experience</h3>
             <p>Thoughtfully designed interface for seamless interaction</p>
         </div>
+    </div>
+</section>
+
+<section class="support-section">
+    <div class="support-container">
+        <h2 class="support-title">Need Help?</h2>
+        <p class="support-text">We're here to help you with any questions or issues you might have. Our support team is ready to assist you with technical problems, account issues, or any other concerns.</p>
+        <a href="mailto:support@anbition.net" class="support-email">Contact Support</a>
     </div>
 </section>
 
